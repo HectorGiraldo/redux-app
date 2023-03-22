@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideMockStore } from '@ngrx/store/testing';
 
 import { HijoComponent } from './hijo.component';
+import { NietoComponent } from '../nieto/nieto.component';
+import { multiplicar } from '../contador.actions';
+import { Store } from '@ngrx/store';
 
 describe('HijoComponent', () => {
   let component: HijoComponent;
@@ -8,9 +12,9 @@ describe('HijoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HijoComponent ]
-    })
-    .compileComponents();
+      declarations: [HijoComponent, NietoComponent],
+      providers: [provideMockStore({})],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(HijoComponent);
     component = fixture.componentInstance;
